@@ -9,16 +9,14 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
-
-
-// Test DB connection
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
-    console.error('Database error:', err);
+    console.error('❌ Database error:', err);
   } else {
-    console.log('Database connected at:', res.rows[0]);
+    console.log('✅ Database connected at:', res.rows[0].now);
   }
 });
+
 
 // Start the server
 app.listen(PORT, () => {
